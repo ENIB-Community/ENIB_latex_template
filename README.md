@@ -2,6 +2,11 @@
 
 > Ce repo contient un code latex proche du code proposé par l'inria pour les manuscrits de thèse: https://gitlab.inria.fr/ed-mathstic/latex-template
 
+## Demonstration
+
+* [Latex Document](https://github.com/vincentchoqueuse/ENIB_latex_template/blob/main/main.pdf)
+
+
 ## Getting Started
 
 #### Structure of the repository
