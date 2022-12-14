@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="0 0 210 297" xmlns="http://www.w3.org/2000/svg">
+  <rect y="287" width="35" height="10" style="fill: rgb(213, 206, 192);"/>
+  <rect y="287" width="35" height="10" style="fill: rgb(190, 194, 136);" x="35"/>
+  <rect y="287" width="35" height="10" style="fill: rgb(190, 190, 207);" x="70"/>
+  <rect y="287" width="35" height="10" style="fill: rgb(143, 200, 208);" x="105"/>
+  <rect y="287" width="35" height="10" style="fill: rgb(211, 104, 121);" x="140"/>
+  <rect y="287" width="35" height="10" style="fill: rgb(212, 134, 64);" x="175"/>
+</svg>
