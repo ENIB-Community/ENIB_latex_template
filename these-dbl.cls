@@ -27,6 +27,9 @@
 \RequirePackage[inner=30mm,outer=20mm,top=30mm,bottom=20mm]{geometry}
 \RequirePackage{setspace}
 \RequirePackage{listings}
+\renewcommand{\lstlistingname}{Code}% Listing -> Algorithm
+\renewcommand{\lstlistlistingname}{Liste des \lstlistingname s}% List of Listings -> 
+% taken from: https://mirrors.ircam.fr/pub/CTAN/macros/latex/contrib/listings/listings.pdf
 \RequirePackage{eso-pic}
 
 %Ou bien : \RequirePackage[top=4 cm, bottom=4 cm, left=3 cm, right=3 cm]{geometry} % On peut modifier ces valeurs pour augmenter ou r\'{e}duire les marges. Attention aux en-têtes de chapitres. 
