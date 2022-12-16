@@ -9,6 +9,10 @@
 *.ind
 *.log
 *.out
+*.acn
+*.acr 
+*.alg
+*.gls
 *.ps
 *.run.xml
 *.synctex.gz

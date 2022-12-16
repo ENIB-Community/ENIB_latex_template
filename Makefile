@@ -29,6 +29,6 @@ $(TARGET).pdf: $(SOURCE_FILES) $(BIB_FILES) $(FIGURES) these-dbl.cls
 
 clean:
 	rm -f $(TARGET).{ps,bcf,run.xml}
-	for suffix in dvi aux bbl blg toc ind out brf ilg idx synctex.gz log lof lol lot; do \
+	for suffix in acn acr alg glg glo gls ist dvi aux bbl blg toc ind out brf ilg idx synctex.gz log lof lol lot; do \
 		find . -type d -name ".git" -prune -o -type f -name "*.$${suffix}" -print -exec rm {} \;  ; \
 	done
