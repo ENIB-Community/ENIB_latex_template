@@ -2,7 +2,6 @@
 % This file is the main file where the final document is generated
 \documentclass{these-dbl}
 
-% Remplir les metadonnees du pdf
 % Fill the pdf metadata
 \hypersetup{
 %    pdfauthor   = {XYZ},
@@ -12,15 +11,14 @@
 }
 
 \geometry{vmargin=4.0cm}
-
-% Spécifier vos fichiers de bibliographie
-% Specify you bibliography files here
 \addbibresource{./biblio/biblio.bib}
+
+\makeglossaries
+\newacronym{gcd}{GCD}{Greatest Common Divisor}
+\newacronym{lcm}{LCM}{Least Common Multiple}
 
 \begin{document}
 
-% Page de garde avec commande \maketitle
-% Front cover calling \maketitle
 \input{./cover/front}
 
 
@@ -64,7 +62,6 @@
 
 
 % Chapitre pour la bibliographie
-% Bibliography chapter
 \clearemptydoublepage
 \phantomsection % To have a correct link in the table of contents
 \addcontentsline{toc}{chapter}{Bibliographie}
@@ -73,6 +70,9 @@
 % nocite: In order to cite all the references included biblio
 \nocite{*}
 \printbibliography
+
+\clearemptydoublepage
+\printglossary[type=\acronymtype]
 
 \clearemptydoublepage
 % Pour avoir la quatrième de couverture sur une page paire
