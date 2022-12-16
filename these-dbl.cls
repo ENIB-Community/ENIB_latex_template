@@ -57,6 +57,8 @@
 \newcommand*{\selectfontbackcover}{\fontfamily{phv}\selectfont}   % Font style used in back cover 
 \newcommand*{\selectfontchapheads}{\fontfamily{phv}\selectfont} % Font style used chapter headings
 
+
+
 \newcommand\BackgroundPicfront{%
 \put(0,0){%
 \parbox[b][\paperheight]{\paperwidth}{%
@@ -93,7 +95,8 @@
     \hrulefill
     \par\nobreak
     \vskip 50\p@
-  }}
+  }
+}
 \def\@makeschapterhead#1{%
  \vspace*{-50\p@}%
   {\parindent \z@ \raggedleft \reset@font
@@ -105,7 +108,8 @@
     \hrulefill
     \par\nobreak
     \vskip 30\p@
-  }}
+  }
+}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -239,8 +243,9 @@
 \makeatletter
 \def\maketitle{%
   \thispagestyle{empty}
-  \clearpage
-  \AddToShipoutPicture*{\BackgroundPicfront}
+  {
+    \clearpage
+    \AddToShipoutPicture*{\BackgroundPicfront}
     \displayLogos
     \selectfontfrontcover
     \vskip 6em~\\
@@ -266,7 +271,7 @@
     Dates :   & \@dates \\
     \end{tabular}
     \end{small}
-
+    }
 }
 
 \makeatother
