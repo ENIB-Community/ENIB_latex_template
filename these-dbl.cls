@@ -48,6 +48,10 @@
 \frenchspacing
 \FrenchFootnotes
 
+% configure
+\renewcommand{\lstlistingname}{Code}% Listing -> Algorithm
+\renewcommand{\lstlistlistingname}{Liste des \lstlistingname s}
+
 % Define commands to set fonts throughout the document
 \newcommand*{\selectfontfrontcover}{\fontfamily{phv}\selectfont}  % Font style used in front cover 
 \newcommand*{\selectfontbackcover}{\fontfamily{phv}\selectfont}   % Font style used in back cover 
