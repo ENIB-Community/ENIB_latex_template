@@ -200,6 +200,11 @@
 \newcommand{\semester}[1]{\gdef\@semester{#1}}
 \semester{}
 
+%%% Date
+\newcommand{\dates}[1]{\gdef\@dates{#1}}
+\dates{}
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%% PAGE DE GARDE %%%%%%%%%%%%%%%%
@@ -258,6 +263,7 @@
     \begin{tabular}{@{}ll}
     Entreprise :          & \@entreprise \\
     \'{E}tablissement :   & \'{E}cole Nationale d'Ingénieurs de Brest (ENIB) \\
+    Dates :   & \@dates \\
     \end{tabular}
     \end{small}
 
