@@ -33,8 +33,7 @@ Required additional packages:
 - Fedora (install using `dnf install`)
 	- texlive-abstract
 	- texlive-wallpaper
-- Other distributions
-	- TODO (contributions welcome)
+- Other distributions: [Search on pkgs.org](https://pkgs.org/search/?q=texlive-full)
 
 #### Compile latex into pdf
 
