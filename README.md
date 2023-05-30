@@ -34,7 +34,7 @@ Required additional packages:
 	- texlive-abstract
 	- texlive-wallpaper
 - Archlinux:
-	- texlive-most
+	- [texlive-most](https://wiki.archlinux.org/title/TeX_Live)
 - Other distributions: [Search on pkgs.org](https://pkgs.org/search/?q=texlive-full)
 
 #### Compile latex into pdf
