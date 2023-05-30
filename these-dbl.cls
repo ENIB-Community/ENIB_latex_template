@@ -1,7 +1,7 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{these-dbl}[11/07/2021 v5.1]
 
-\LoadClass[twoside,multicol,12pt,a4paper]{report}	% notez le "twoside", essentiellement pour alterner les en-tete et pieds de page gauche et droit si on veut utliser les fancyhead. 
+\LoadClass[oneside,multicol,12pt,a4paper]{report}
 \RequirePackage[utf8]{inputenc} 
 \RequirePackage[english,french]{babel} % Last language is the default, use \selectlanguage{english} to switch
 \RequirePackage{ifpdf}
