@@ -364,8 +364,9 @@
     \fancyhead[LE]{} % \leftmark = chapitre courant
     \fancyfoot[C]{\thepage}               % marque la page au centre
 
-} 
-
+}
+% remove fancyhdr warning
+\setlength{\headheight}{14pt}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
