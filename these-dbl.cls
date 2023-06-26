@@ -208,6 +208,10 @@
 \newcommand{\dates}[1]{\gdef\@dates{#1}}
 \dates{}
 
+%%% Mail
+\newcommand{\mail}[1]{\gdef\@mail{#1}}
+\mail{}
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -269,6 +273,7 @@
     Entreprise :          & \@entreprise \\
     \'{E}tablissement :   & \'{E}cole Nationale d'Ingénieurs de Brest (ENIB) \\
     Dates :   & \@dates \\
+    Mail étudiant :   & \@mail \\
     \end{tabular}
     \end{small}
     }
@@ -359,8 +364,9 @@
     \fancyhead[LE]{} % \leftmark = chapitre courant
     \fancyfoot[C]{\thepage}               % marque la page au centre
 
-} 
-
+}
+% remove fancyhdr warning
+\setlength{\headheight}{14pt}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
