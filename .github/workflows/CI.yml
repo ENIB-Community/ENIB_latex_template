@@ -1,0 +1,36 @@
+name: Build LaTeX document
+
+
+permissions: 
+   pull-requests: write 
+
+on:
+  push:
+    branches: 
+      - main
+  pull_request:
+    types: [opened, synchronize, reopened]
+  workflow_dispatch:
+    branches: [ '**' ]
+
+jobs:
+  build-pdf:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Git repository
+        uses: actions/checkout@v3
+      - name: Compile LaTeX document
+        uses: xu-cheng/latex-action@v2
+        with:
+          root_file: main.tex
+      - name: Upload PDF file
+        uses: actions/upload-artifact@v3
+        with:
+          name: ${{ github.sha }}_PDF
+          path: main.pdf
+      
+      - name: Upload compilation logs
+        uses: actions/upload-artifact@v3
+        with:
+          name: ${{ github.sha }}_LOGS
+          path: main.log
