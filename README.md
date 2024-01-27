@@ -1,10 +1,10 @@
 # Report Latex Template 
 
-> Ce repo contient un code latex proche du code proposé par l'inria pour les manuscrits de thèse: https://gitlab.inria.fr/ed-mathstic/latex-template
+> Ce repo contient un code latex proche du code proposé par l'INRIA pour les manuscrits de thèse: https://gitlab.inria.fr/ed-mathstic/latex-template
 
 ## Demonstration
 
-* [Latex Document](https://github.com/vincentchoqueuse/ENIB_latex_template/blob/main/main.pdf)
+* [Latex Document](https://github.com/ENIB-Community/ENIB_latex_template/blob/main/main.pdf)
 
 
 ## Getting Started
@@ -39,17 +39,22 @@ Required additional packages:
 
 #### Compile latex into pdf
 
-A `Makefile` is provided to help you compile your document. It uses `pdflatex` and`biber` to generate the pdf file and can display it by using `evince` on Linux or `open` on MacOS.
+A `Makefile` is provided to help you compile your document. It uses `pdflatex` and`biber` to generate the pdf file and can display it by using your prefered PDF reader on Linux and MacOS.
 
 Compile your document with `pdflatex/biber`:
 
-	make
+```sh
+make
+```
 
 Display the generated pdf:
 
-	make viewpdf
+```sh
+make viewpdf
+```
 
 Remove all generated files, pdf included:
 
-	make clean
-
+```shd
+make clean
+```
