@@ -1,6 +1,7 @@
 % Ce fichier main.tex est le fichier principal \`{a} partir duquel tout est g\'{e}n\'{e}r\'{e}
 % This file is the main file where the final document is generated
-\documentclass{these-dbl}
+%\documentclass[english,confidential]{these-dbl}
+\documentclass[french]{these-dbl}
 
 % Fill the pdf metadata
 \hypersetup{
@@ -21,14 +22,23 @@
 \input{./cover/front}
 
 
-\selectlanguage{french}
+% Sélection automatique de la langue principale selon l'option de classe
+\ifenglish
+  \selectlanguage{english}
+\else
+  \selectlanguage{french}
+\fi
 
 \clearemptydoublepage
 \input{./acknowledgement/acknowledgement}
 
 \frontmatter
 \clearemptydoublepage
-\renewcommand{\contentsname}{Table des Matières}
+\ifenglish
+  \renewcommand{\contentsname}{Table of Contents}
+\else
+  \renewcommand{\contentsname}{Table des Matières}
+\fi
 \tableofcontents %sommaire %table of content
 %\shorttableofcontents{Sommaire}{0}
 

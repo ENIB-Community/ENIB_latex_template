@@ -1,9 +1,9 @@
-% La page de garde est en français
-% The front cover is in French
+% La page de garde : switch fr/en avec \setdoclanguage{fr} ou \setdoclanguage{en}
+\setdoclanguage{fr} % ou \setdoclanguage{en}
 \selectlanguage{french}
 
 % S8 or S10
-\semester{«Semester»}
+\semester{«Semestre»}
 \entreprise{« Entreprise »}
 \author{« Pr\'{e}nom NOM »}
 \title{« Titre du stage»}
@@ -11,15 +11,19 @@
 \dates{du « date début» au « date fin»}
 \lieu{« Lieu »}
 \mail{yourmail@enib.fr}
+\version{1.0 : 08/12/2025}
+
+% Titre du jury selon la langue
+\newcommand{\jurytitle}{\ifenglish Composition of the Jury: \else Composition du Jury : \fi}
 
 \jury{
-{\normalTwelve \textbf{Composition du Jury :}}\\
+{\normalTwelve \textbf{\jurytitle}}\\
 \newline
 \footnotesizeTwelve
 \begin{tabular}{@{}lll}
-Tuteur ENIB :          & Pr\'{e}nom NOM & ENIB  \\
-Accesseur :          & Pr\'{e}nom NOM & ENIB \\
-Tuteur Entreprise :    & Pr\'{e}nom NOM & Fonction et \'{e}tablissement d'exercice \\
+\ifenglish ENIB Supervisor: \else Tuteur ENIB : \fi & Pr\'{e}nom NOM & ENIB  \\
+\ifenglish Examiner: \else Accesseur : \fi & Pr\'{e}nom NOM & ENIB \\
+\ifenglish Company Supervisor: \else Tuteur Entreprise : \fi & Pr\'{e}nom NOM & Fonction et \'{e}tablissement d'exercice \\
 \end{tabular}
 }
 
