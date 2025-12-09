@@ -1,6 +1,16 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{these-dbl}[11/07/2021 v5.1]
 
+% Option de langue pour la page de garde (doit être défini avant tout)
+\newif\ifenglish
+\newif\iffrench
+\englishfalse
+\frenchtrue
+\DeclareOption{english}{\englishtrue\frenchfalse}
+\DeclareOption{french}{\englishfalse\frenchtrue}
+% Par défaut français
+\ProcessOptions\relax
+
 \LoadClass[oneside,multicol,12pt,a4paper]{report}
 \RequirePackage[utf8]{inputenc} 
 \RequirePackage[english,french]{babel} % Last language is the default, use \selectlanguage{english} to switch
@@ -52,10 +62,21 @@
 \renewcommand{\lstlistingname}{Code}% Listing -> Algorithm
 \renewcommand{\lstlistlistingname}{Liste des \lstlistingname s}
 
+% Option to enable/disable confidential mode
+\newif\if@confidential
+\@confidentialfalse
+\DeclareOption{confidential}{\@confidentialtrue}
+\ProcessOptions\relax
+
 % Define commands to set fonts throughout the document
 \newcommand*{\selectfontfrontcover}{\fontfamily{phv}\selectfont}  % Font style used in front cover 
 \newcommand*{\selectfontbackcover}{\fontfamily{phv}\selectfont}   % Font style used in back cover 
 \newcommand*{\selectfontchapheads}{\fontfamily{phv}\selectfont} % Font style used chapter headings
+
+% Macro pour switcher la langue facilement
+\newcommand{\setdoclanguage}[1]{%
+  \ifthenelse{\equal{#1}{fr}}{\selectlanguage{french}}{\selectlanguage{english}}
+}
 
 
 
@@ -212,7 +233,9 @@
 \newcommand{\mail}[1]{\gdef\@mail{#1}}
 \mail{}
 
-
+%%% Version
+\newcommand{\version}[1]{\gdef\@version{#1}}
+\version{}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%% PAGE DE GARDE %%%%%%%%%%%%%%%%
@@ -253,29 +276,48 @@
     \displayLogos
     \selectfontfrontcover
     \vskip 6em~\\
-    {\HugeTwelve\textsc{Rapport de Stage \@semester}}
+    {\HugeTwelve\ifenglish\textsc{Internship Report \@semester}\else\textsc{Rapport de Stage \@semester}\fi}
     \vskip 2em~\\
-    {\LARGETwelve Pr\'{e}sent\'{e} par \textbf{\@author}}
+    {\LARGETwelve\ifenglish Presented by \else Pr\'{e}sent\'{e} par \fi \textbf{\@author}}
     \vskip 2em~\\ 
     {\LargeTwelve \textbf{\@title}}
     \vfill ~\\
     {\smallTwelve
-    \textbf{Rapport pr\'{e}sent\'{e} et soutenu \`{a} \@lieu, le \@date  \\~\\}
+    \ifenglish
+      	\textbf{Report presented and defended at \@lieu, on \@date \\~\\}
+    \else
+      	\textbf{Rapport pr\'{e}sent\'{e} et soutenu \`{a} \@lieu, le \@date  \\~\\}
+    \fi
     }
     \begin{small}
     \@jury
     
     \vskip 4em~\\ 
-    {\smallTwelve \textbf{Informations Administratives :}}\\
+    {\smallTwelve\ifenglish\textbf{Administrative Information:}\else\textbf{Informations Administratives :}\fi}\\
     \newline
     \footnotesizeTwelve
     \begin{tabular}{@{}ll}
-    Entreprise :          & \@entreprise \\
-    \'{E}tablissement :   & \'{E}cole Nationale d'Ingénieurs de Brest (ENIB) \\
-    Dates :   & \@dates \\
-    Mail étudiant :   & \@mail \\
+    \ifenglish
+      Company: & \@entreprise \\
+      Institution: & National Engineering School of Brest (ENIB) \\
+      Dates: & \@dates \\
+      Student email: & \@mail \\
+      Version: & \@version \\
+    \else
+      Entreprise : & \@entreprise \\
+      \'{E}tablissement : & \'{E}cole Nationale d'Ingénieurs de Brest (ENIB) \\
+      Dates : & \@dates \\
+      Mail étudiant : & \@mail \\
+      Version : & \@version \\
+    \fi
     \end{tabular}
     \end{small}
+      \vskip 2em~\\
+      \if@confidential
+        \begin{center}
+          {\LargeTwelve\textcolor{red}{\textbf{\ifenglish CONFIDENTIAL \else CONFIDENTIEL \fi}}}
+        \end{center}
+      \fi
     }
 }
 
@@ -293,32 +335,32 @@
 
 \newcommand{\subject}[1]{%
 \vspace{0.5cm}
-\noindent{\smallTwelve \textbf{Sujet : }#1}
+\noindent{\smallTwelve \textbf{\ifenglish Subject: \else Sujet : \fi}#1}
 }
 
 \newcommand{\keywords}[1]{%
 \vspace{0.5cm}
-\noindent{\smallTwelve \textbf{Mot cl\'{e}s : }#1}
+\noindent{\smallTwelve \textbf{\ifenglish Keywords: \else Mot cl\'{e}s : \fi}#1}
 }
 
 \newcommand{\compagny}[1]{%
 \vspace{0.5cm}
 \begin{spacing}{1}
-	\noindent\smallTwelve \textbf{Entreprise : }#1
+\noindent\smallTwelve \textbf{\ifenglish Company: \else Entreprise : \fi}#1
 \end{spacing}
 }
 
 \newcommand{\resume}[1]{%
 \vspace{0.5cm}
 \begin{spacing}{1}
-	\noindent\smallTwelve \textbf{Travaux Réalisés : }#1
+\noindent\smallTwelve \textbf{\ifenglish Work Completed: \else Travaux Réalisés : \fi}#1
 \end{spacing}
 }
 
 \newcommand{\conclusion}[1]{%
 \vspace{0.5cm}
 \begin{spacing}{1}
-\noindent\smallTwelve \textbf{Conclusion : }#1
+\noindent\smallTwelve \textbf{\ifenglish Conclusion: \else Conclusion : \fi}#1
 \end{spacing}
 }
 
@@ -344,7 +386,12 @@
 \fancyhead[LE,RO]{\small\thepage}
     \fancyhead[RO]{\small\leftmark}   % \rightmark = section courante
     \fancyhead[LE]{\small\leftmark} % \leftmark = chapitre courant
-    \fancyfoot[C]{\thepage}               % marque la page au centre
+    \fancyfoot[C]{
+      \begin{tabular}{c}
+        \thepage \\ 
+        %{\LargeTwelve\textcolor{red}{\textbf{\ifenglish CONFIDENTIAL \else CONFIDENTIEL \fi}}}
+      \end{tabular}
+    }               % marque la page au centre
 }
 
 \appto\mainmatter{\pagestyle{fancy}
@@ -353,7 +400,12 @@
 \fancyhead[LE,RO]{\small\thepage}
     \fancyhead[RO]{\small\rightmark}   % \rightmark = section courante
     \fancyhead[LE]{\small \leftmark} % \leftmark = chapitre courant
-    \fancyfoot[C]{\thepage}               % marque la page au centre
+    \fancyfoot[C]{
+      \begin{tabular}{c}
+        \thepage \\ 
+        %{\LargeTwelve\textcolor{red}{\textbf{\ifenglish CONFIDENTIAL \else CONFIDENTIEL \fi}}}
+      \end{tabular}
+    }               % marque la page au centre
 }     
 
 \appto\backmatter{\pagestyle{fancy}
@@ -362,12 +414,27 @@
 \fancyhead[LE,RO]{\small\thepage}
     \fancyhead[RO]{}   % \rightmark = section courante
     \fancyhead[LE]{} % \leftmark = chapitre courant
-    \fancyfoot[C]{\thepage}               % marque la page au centre
+    \fancyfoot[C]{
+      \begin{tabular}{c}
+        \thepage \\ 
+        %{\LargeTwelve\textcolor{red}{\textbf{\ifenglish CONFIDENTIAL \else CONFIDENTIEL \fi}}}
+      \end{tabular}
+    }               % marque la page au centre
 
 }
 % remove fancyhdr warning
 \setlength{\headheight}{14pt}
 
+% Redéfinir le style plain pour inclure CONFIDENTIAL
+\fancypagestyle{plain}{%
+  \fancyhf{} % tout effacer
+  \fancyfoot[C]{
+    \begin{tabular}{c}
+      \thepage \\ 
+      %{\LargeTwelve\textcolor{red}{\textbf{\ifenglish CONFIDENTIAL \else CONFIDENTIEL \fi}}}
+    \end{tabular}
+  }
+}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%% FAIRE DES ENCARTS %%%%%%%%%%%%%%%%

@@ -1,3 +1,5 @@
+% Switch fr/en avec \setdoclanguage{fr} ou \setdoclanguage{en}
+\setdoclanguage{en} % ou \setdoclanguage{en}
 \markboth{}{}
 % Plus petite marge du bas pour la quatrième de couverture
 % Shorter bottom margin for the back cover
@@ -13,11 +15,11 @@
 
 \begin{multicols}{2}[\columnsep2em] 
     \smallTwelve{
-    \noindent \textbf{Stagiaire}: «Nom Prenom» \\
-    \noindent \textbf{Semestre}: «Mon Semestre»\\
-    \noindent \textbf{Entreprise}: «Entreprise»\\
-    \noindent \textbf{Tuteur Entreprise}: «Mon Tuteur Entreprise»\\
-    \noindent \textbf{Tuteur ENIB}: «Mon Tuteur ENIB»~\\
+    \noindent \textbf{\ifenglish Intern: \else Stagiaire: \fi} «Nom Prenom» \\
+    \noindent \textbf{\ifenglish Semester: \else Semestre: \fi} «Mon Semestre»\\
+    \noindent \textbf{\ifenglish Company: \else Entreprise: \fi} «Entreprise»\\
+    \noindent \textbf{\ifenglish Company Supervisor: \else Tuteur Entreprise: \fi} «Mon Tuteur Entreprise»\\
+    \noindent \textbf{\ifenglish ENIB Supervisor: \else Tuteur ENIB: \fi} «Mon Tuteur ENIB»~\\
     }
     \columnbreak
     \hfill\includegraphics[keepaspectratio,height=3cm]{./cover/profile}
