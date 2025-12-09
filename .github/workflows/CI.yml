@@ -24,13 +24,13 @@ jobs:
         with:
           root_file: main.tex
       - name: Upload PDF file
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: ${{ github.sha }}_PDF
           path: main.pdf
-      
+
       - name: Upload compilation logs
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: ${{ github.sha }}_LOGS
           path: main.log
