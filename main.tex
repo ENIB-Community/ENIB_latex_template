@@ -1,142 +1,94 @@
-% Ce fichier main.tex est le fichier principal \`{a} partir duquel tout est g\'{e}n\'{e}r\'{e}
-% This file is the main file where the final document is generated
+% Main file used to compile the internship report
+\documentclass{school-report}
 
-% ============================================================
-% CONFIGURATION OPTIONS / OPTIONS DE CONFIGURATION
-% ============================================================
-% Language options / Options de langue:
-%   - french (default) : Document en français
-%   - english : Document in English
-%
-% Confidential option / Option confidentiel:
-%   - confidential : Adds "CONFIDENTIEL/CONFIDENTIAL" marker on cover
-%                    Ajoute le marqueur "CONFIDENTIEL" sur la couverture
-%
-% Examples / Exemples:
-%   \documentclass[french]{these-dbl}                 % French only
-%   \documentclass[english]{these-dbl}                % English only
-%   \documentclass[french,confidential]{these-dbl}    % French + Confidential
-%   \documentclass[english,confidential]{these-dbl}   % English + Confidential
-% ============================================================
-
-\documentclass[french]{these-dbl}
-
-% Fill the pdf metadata
+% PDF metadata
 \hypersetup{
-%    pdfauthor   = {XYZ},
-%    pdftitle    = {Th\`{e}se de doctorat de XYZ},
-%    pdfsubject  = {Th\`{e}se de doctorat de XYZ},
-%    pdfkeywords = {mots-cl\'{e}s},
+    pdfauthor   = {First Name LAST NAME},
+    pdftitle    = {Intern Report},
+    pdfsubject  = {Subject},
+    pdfkeywords = {Keywords},
 }
 
+% Custom margins 
 \geometry{vmargin=4.0cm}
+
+% Adjust headheight and topmargin to avoid warnings
+\setlength{\headheight}{38.49326pt}
+\addtolength{\topmargin}{-8.49326pt}
+
+% Bibliography resource
 \addbibresource{./biblio/biblio.bib}
 
+% Glossary and acronyms
 \makeglossaries
 \input{./glossary}
 
 \begin{document}
 
+% Front cover
 \input{./cover/front}
 
+% Document language
+\selectlanguage{english}
 
-% Sélection automatique de la langue principale selon l'option de classe
-\ifenglish
-  \selectlanguage{english}
-\else
-  \selectlanguage{french}
-\fi
-
-% ============================================================
-% OPTIONAL: Acknowledgements / OPTIONNEL: Remerciements
-% ============================================================
-% Comment out the next 2 lines if you don't want an acknowledgements page
-% Commentez les 2 lignes suivantes si vous ne voulez pas de page de remerciements
+% Acknowledgements
 \clearemptydoublepage
 \input{./acknowledgement/acknowledgement}
 
+% Table of contents
 \frontmatter
-% ============================================================
-% Table of Contents / Table des matières
-% ============================================================
 \clearemptydoublepage
-\ifenglish
-  \renewcommand{\contentsname}{Table of Contents}
-\else
-  \renewcommand{\contentsname}{Table des Matières}
-\fi
-\tableofcontents %sommaire %table of content
-%\shorttableofcontents{Sommaire}{0}
+\renewcommand{\contentsname}{Table of Contents}
+\tableofcontents
 
-% ============================================================
-% OPTIONAL: Lists / OPTIONNEL: Listes
-% ============================================================
-% Comment out any of the following sections if not needed
-% Commentez les sections suivantes si vous n'en avez pas besoin
-
-% List of Figures / Liste des figures
+% Lists
 \clearemptydoublepage
 \listoffigures
 
-% List of Tables / Liste des tableaux
 \clearemptydoublepage
 \listoftables
 
-% List of Code Listings / Liste des codes
 \clearemptydoublepage
 \lstlistoflistings
 
+% Introduction
 \clearemptydoublepage
 \input{./introduction/introduction}
 
-\clearemptydoublepage
+% Main chapters
 \mainmatter
+
+\clearemptydoublepage
 \input{./chapter1/chapter1}
 
 \clearemptydoublepage
 \input{./chapter2/chapter2}
 
 \clearemptydoublepage
-\mainmatter
 \input{./chapter3/chapter3}
 
-\clearemptydoublepage
+% Conclusion
 \backmatter
+\clearemptydoublepage
 \input{./conclusion/conclusion}
 
-
-% Chapitre pour la bibliographie
+% Bibliography
 \clearemptydoublepage
-\phantomsection % To have a correct link in the table of contents
-\addcontentsline{toc}{chapter}{Bibliographie}
-
-% nocite: Pour citer la totalit\'{e} des r\'{e}f\'{e}rences contenues dans le fichier biblio
-% nocite: In order to cite all the references included biblio
+\phantomsection
+\addcontentsline{toc}{chapter}{Bibliography}
 \nocite{*}
 \printbibliography
 
-% ============================================================
-% OPTIONAL: Glossary/Acronyms / OPTIONNEL: Glossaire/Acronymes
-% ============================================================
-% Comment out the next 2 lines if you don't use acronyms or glossary
-% Commentez les 2 lignes suivantes si vous n'utilisez pas d'acronymes ou de glossaire
+% Glossary
 \clearemptydoublepage
 \printglossary[type=\acronymtype]
 
-% ============================================================
-% OPTIONAL: Appendix / OPTIONNEL: Annexes
-% ============================================================
-% Comment out the next 2 lines if you don't have appendices
-% Commentez les 2 lignes suivantes si vous n'avez pas d'annexes
+% Appendix
 \clearemptydoublepage
 \input{./appendix/appendix}
 
-
-\clearemptydoublepage
-% Pour avoir la quatrième de couverture sur une page paire
-% To have the back cover on an even page
+% Ensure the back cover appears on an even page
 \cleartoevenpage[\thispagestyle{empty}]
-
 \input{./cover/back}
 
 \end{document}

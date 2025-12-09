@@ -1,36 +1,30 @@
-% Switch fr/en avec \setdoclanguage{fr} ou \setdoclanguage{en}
-\setdoclanguage{en} % ou \setdoclanguage{en}
 \markboth{}{}
-% Plus petite marge du bas pour la quatrième de couverture
 % Shorter bottom margin for the back cover
 \newgeometry{inner=20mm,outer=20mm,top=40mm,bottom=20mm}
 
-%insertion de l'image de fond du dos (resume)
-%background image for resume (back)
+% Background image for the back cover (summary)
 \backcoverheader
 
 % Switch font style to back cover style
 \selectfontbackcover{ % Font style change is limited to this page using braces, just in case
 
-
 \begin{multicols}{2}[\columnsep2em] 
     \smallTwelve{
-    \noindent \textbf{\ifenglish Intern: \else Stagiaire: \fi} «Nom Prenom» \\
-    \noindent \textbf{\ifenglish Semester: \else Semestre: \fi} «Mon Semestre»\\
-    \noindent \textbf{\ifenglish Company: \else Entreprise: \fi} «Entreprise»\\
-    \noindent \textbf{\ifenglish Company Supervisor: \else Tuteur Entreprise: \fi} «Mon Tuteur Entreprise»\\
-    \noindent \textbf{\ifenglish ENIB Supervisor: \else Tuteur ENIB: \fi} «Mon Tuteur ENIB»~\\
+    \noindent \textbf{Intern}: «First Name Last Name» \\
+    \noindent \textbf{Semester}: «My Semester»\\
+    \noindent \textbf{Company}: «Company»\\
+    \noindent \textbf{Company Supervisor}: «My Company Supervisor»\\
+    \noindent \textbf{ENIB Supervisor}: «My ENIB Supervisor»~\\
     }
     \columnbreak
     \hfill\includegraphics[keepaspectratio,height=3cm]{./cover/profile}
 \end{multicols}
 
+\subject{«My Subject»} 
 
-\subject{«Mon Sujet»} 
+\keywords{«3 to 6 keywords»} 
 
-\keywords{«de 3 \`{a} 6 mots clefs»} 
-
-\compagny{Eius populus ab incunabulis primis ad usque pueritiae tempus extremum, quod annis circumcluditur fere trecentis, circummurana pertulit bella, deinde aetatem ingressus adultam post multiplices bellorum aerumnas Alpes transcendit et fretum, in iuvenem erectus et virum ex omni plaga quam orbis ambit inmensus, reportavit laureas et triumphos, iamque vergens in senium et nomine solo aliquotiens vincens ad tranquilliora vitae discessit.
+\company{Eius populus ab incunabulis primis ad usque pueritiae tempus extremum, quod annis circumcluditur fere trecentis, circummurana pertulit bella, deinde aetatem ingressus adultam post multiplices bellorum aerumnas Alpes transcendit et fretum, in iuvenem erectus et virum ex omni plaga quam orbis ambit inmensus, reportavit laureas et triumphos, iamque vergens in senium et nomine solo aliquotiens vincens ad tranquilliora vitae discessit.
 Hoc inmaturo interitu ipse quoque sui pertaesus excessit e vita aetatis nono anno atque vicensimo cum quadriennio imperasset. natus apud Tuscos in Massa Veternensi, patre Constantio Constantini fratre imperatoris, matreque Galla.
 Thalassius vero ea tempestate praefectus praetorio praesens ipse quoque adrogantis ingenii.}
 

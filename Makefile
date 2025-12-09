@@ -21,7 +21,7 @@ viewpdf: pdf
 
 pdf: $(TARGET).pdf
 
-$(TARGET).pdf: $(SOURCE_FILES) $(BIB_FILES) $(FIGURES) these-dbl.cls
+$(TARGET).pdf: $(SOURCE_FILES) $(BIB_FILES) $(FIGURES) school-report.cls
 	pdflatex -interaction=nonstopmode -jobname=$(TARGET) $(SOURCE_FILES)
 	biber $(TARGET)
 	makeglossaries $(TARGET)
