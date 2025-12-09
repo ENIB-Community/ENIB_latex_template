@@ -1,89 +1,88 @@
-# Report Latex Template 
+# Report LaTeX Template
 
-> Ce repo contient un code latex proche du code proposé par l'INRIA pour les manuscrits de thèse: https://gitlab.inria.fr/ed-mathstic/latex-template
+This repository provides a LaTeX template inspired by the official template recommended by INRIA for thesis manuscripts:  
+[INRIA Thesis Template](https://gitlab.inria.fr/ed-mathstic/latex-template)
 
-## Demonstration
+---
 
-* [Latex Document](https://github.com/ENIB-Community/ENIB_latex_template/blob/main/main.pdf)
+## Demo
 
+You can find an example of a compiled document here:  
+[Compiled PDF example](https://github.com/ENIB-Community/ENIB_latex_template/blob/main/main.pdf)
+
+---
 
 ## Getting Started
 
-#### Structure of the repository
+### Repository Structure
 
-- `main.tex` contains the backbone structure of the document, no content is present in this file
-- `these-dbl.cls` contains the package dependencies, bibliography parameters including citation style and overall layout specifications including both front and back cover layouts
-- `cover/front.tex` contains the variables that must be filled by the author to complete the front cover, these variables are used in `\maketitle` redefined in `these-dbl.cls`
-- `cover/back.tex` contains the variables that must be filled by the author to complete the back cover, these variables are used in the macros defined in `these-dbl.cls`
-- The `Makefile` helps you compile the latex and bibliography into a pdf (details below)
-- The rest of the directories each contain one chapter of the document
+- **`main.tex`**  
+  The main document file defining the overall structure; contains no content itself.
 
-#### Configuration Options
+- **`enib-report.cls`**  
+  Custom class file managing package imports, bibliography settings (including citation styles), and the full document layout—cover pages included.
 
-**Language Selection:**
-You can switch between French and English by editing the documentclass in `main.tex`:
-```latex
-\documentclass[french]{these-dbl}  % For French (default)
-\documentclass[english]{these-dbl} % For English
-```
+- **`cover/front.tex`**  
+  Contains variables to be filled by the author for the front cover. These variables are used in the customized `\maketitle` command.
 
-**Confidential Reports:**
-For confidential internship reports, add the `confidential` option:
-```latex
-\documentclass[french,confidential]{these-dbl}  % French + Confidential
-\documentclass[english,confidential]{these-dbl} % English + Confidential
-```
-This will add a red "CONFIDENTIEL" or "CONFIDENTIAL" marker on the front cover.
+- **`cover/back.tex`**  
+  Contains variables to be completed for the back cover, used by macros defined in the class file.
 
-#### Fill the front and back cover
+- **`Makefile`**  
+  Simplifies compiling the LaTeX document and bibliography into a PDF (see details below).
 
-The front cover details must be provided by filling the variables in `cover/front.tex` and `cover/back.tex`.
-To change the compagny logo, you need to change the file `cover/logo_entreprise.png`
-To change the profile image, you need to change the file `cover/profile.jpg`
+- **Chapter directories**  
+  Each directory corresponds to a chapter of the report and contains its respective content.
 
-#### Dependencies
+---
 
-A LaTeX distribution such as texlive is necessary in order to compile your document. Please note some necessary packages are not directly included in a base texlive installation.
+### Customizing Your Report
 
-Required additional packages:
+- **Front and Back Cover**  
+  Update the author and report details by editing the variables in `cover/front.tex` and `cover/back.tex`.
 
-- Fedora (install using `dnf install`)
-	- texlive-abstract
-	- texlive-wallpaper
-- Archlinux:
-	- [texlive-most](https://wiki.archlinux.org/title/TeX_Live)
-- Other distributions: [Search on pkgs.org](https://pkgs.org/search/?q=texlive-full)
+- **Logos and Images**  
+  - To change the company logo, replace the image referenced by the command `\companyLogo` (default path: `./cover/company`).  
+  - To change the ENIB logo, replace the image referenced by the command `\enibLogo` (default path: `./cover/enib_inp`).  
+  - To change the profile picture, replace the image at `cover/profile.jpg`.
 
-#### Compile latex into pdf
+---
 
-A `Makefile` is provided to help you compile your document. It uses `pdflatex` and`biber` to generate the pdf file and can display it by using your prefered PDF reader on Linux and MacOS.
+### Dependencies
 
-Compile your document with `pdflatex/biber`:
+You need a LaTeX distribution (e.g., TeX Live) to compile the template. Some required packages are not included in the basic TeX Live installation.
 
-```sh
-make
-```
+- **Fedora** (install with `dnf install`):  
+  - `texlive-abstract`  
+  - `texlive-wallpaper`
 
-Display the generated pdf:
+- **Arch Linux**:  
+  - Install the [texlive-most](https://wiki.archlinux.org/title/TeX_Live) package group
 
-```sh
-make viewpdf
-```
+- **Other distributions**:  
+  - Search for full TeX Live packages at [pkgs.org](https://pkgs.org/search/?q=texlive-full)
 
-Remove all generated files, pdf included:
+---
 
-```sh
-make clean
-```
+### Compiling the Document
 
-#### Customizing Your Document
+Use the provided `Makefile` to automate compilation:
 
-**Optional Sections:**
-You can comment out sections you don't need in `main.tex`:
-- `\listoffigures` - List of figures
-- `\listoftables` - List of tables
-- `\lstlistoflistings` - List of code listings
-- `\printglossary` - Glossary/acronyms
-- `\input{./acknowledgement/acknowledgement}` - Acknowledgements page
+- **Compile the document and bibliography:**  
+  ```bash
+  make
+  ```
 
-Simply add `%` at the beginning of the line to disable any section.
+- **Open the generated PDF:**  
+  ```bash
+  make viewpdf
+  ```
+
+- **Clean auxiliary files (including PDF):**  
+  ```bash
+  make clean
+  ```
+
+---
+
+Feel free to reach out if you need help customizing or compiling your report!
