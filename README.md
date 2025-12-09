@@ -18,6 +18,23 @@
 - The `Makefile` helps you compile the latex and bibliography into a pdf (details below)
 - The rest of the directories each contain one chapter of the document
 
+#### Configuration Options
+
+**Language Selection:**
+You can switch between French and English by editing the documentclass in `main.tex`:
+```latex
+\documentclass[french]{these-dbl}  % For French (default)
+\documentclass[english]{these-dbl} % For English
+```
+
+**Confidential Reports:**
+For confidential internship reports, add the `confidential` option:
+```latex
+\documentclass[french,confidential]{these-dbl}  % French + Confidential
+\documentclass[english,confidential]{these-dbl} % English + Confidential
+```
+This will add a red "CONFIDENTIEL" or "CONFIDENTIAL" marker on the front cover.
+
 #### Fill the front and back cover
 
 The front cover details must be provided by filling the variables in `cover/front.tex` and `cover/back.tex`.
@@ -55,6 +72,18 @@ make viewpdf
 
 Remove all generated files, pdf included:
 
-```shd
+```sh
 make clean
 ```
+
+#### Customizing Your Document
+
+**Optional Sections:**
+You can comment out sections you don't need in `main.tex`:
+- `\listoffigures` - List of figures
+- `\listoftables` - List of tables
+- `\lstlistoflistings` - List of code listings
+- `\printglossary` - Glossary/acronyms
+- `\input{./acknowledgement/acknowledgement}` - Acknowledgements page
+
+Simply add `%` at the beginning of the line to disable any section.

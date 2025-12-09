@@ -1,6 +1,24 @@
 % Ce fichier main.tex est le fichier principal \`{a} partir duquel tout est g\'{e}n\'{e}r\'{e}
 % This file is the main file where the final document is generated
-%\documentclass[english,confidential]{these-dbl}
+
+% ============================================================
+% CONFIGURATION OPTIONS / OPTIONS DE CONFIGURATION
+% ============================================================
+% Language options / Options de langue:
+%   - french (default) : Document en français
+%   - english : Document in English
+%
+% Confidential option / Option confidentiel:
+%   - confidential : Adds "CONFIDENTIEL/CONFIDENTIAL" marker on cover
+%                    Ajoute le marqueur "CONFIDENTIEL" sur la couverture
+%
+% Examples / Exemples:
+%   \documentclass[french]{these-dbl}                 % French only
+%   \documentclass[english]{these-dbl}                % English only
+%   \documentclass[french,confidential]{these-dbl}    % French + Confidential
+%   \documentclass[english,confidential]{these-dbl}   % English + Confidential
+% ============================================================
+
 \documentclass[french]{these-dbl}
 
 % Fill the pdf metadata
@@ -29,10 +47,18 @@
   \selectlanguage{french}
 \fi
 
+% ============================================================
+% OPTIONAL: Acknowledgements / OPTIONNEL: Remerciements
+% ============================================================
+% Comment out the next 2 lines if you don't want an acknowledgements page
+% Commentez les 2 lignes suivantes si vous ne voulez pas de page de remerciements
 \clearemptydoublepage
 \input{./acknowledgement/acknowledgement}
 
 \frontmatter
+% ============================================================
+% Table of Contents / Table des matières
+% ============================================================
 \clearemptydoublepage
 \ifenglish
   \renewcommand{\contentsname}{Table of Contents}
@@ -42,12 +68,21 @@
 \tableofcontents %sommaire %table of content
 %\shorttableofcontents{Sommaire}{0}
 
+% ============================================================
+% OPTIONAL: Lists / OPTIONNEL: Listes
+% ============================================================
+% Comment out any of the following sections if not needed
+% Commentez les sections suivantes si vous n'en avez pas besoin
+
+% List of Figures / Liste des figures
 \clearemptydoublepage
 \listoffigures
 
+% List of Tables / Liste des tableaux
 \clearemptydoublepage
 \listoftables
 
+% List of Code Listings / Liste des codes
 \clearemptydoublepage
 \lstlistoflistings
 
@@ -80,9 +115,19 @@
 \nocite{*}
 \printbibliography
 
+% ============================================================
+% OPTIONAL: Glossary/Acronyms / OPTIONNEL: Glossaire/Acronymes
+% ============================================================
+% Comment out the next 2 lines if you don't use acronyms or glossary
+% Commentez les 2 lignes suivantes si vous n'utilisez pas d'acronymes ou de glossaire
 \clearemptydoublepage
 \printglossary[type=\acronymtype]
 
+% ============================================================
+% OPTIONAL: Appendix / OPTIONNEL: Annexes
+% ============================================================
+% Comment out the next 2 lines if you don't have appendices
+% Commentez les 2 lignes suivantes si vous n'avez pas d'annexes
 \clearemptydoublepage
 \input{./appendix/appendix}
 

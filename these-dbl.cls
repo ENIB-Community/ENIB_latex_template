@@ -272,7 +272,7 @@
   \thispagestyle{empty}
   {
     \clearpage
-    \AddToShipoutPicture*{\BackgroundPicfront}
+    % \AddToShipoutPicture*{\BackgroundPicfront}
     \displayLogos
     \selectfontfrontcover
     \vskip 6em~\\
@@ -329,7 +329,7 @@
 \newcommand{\backcoverheader}{%
 \thispagestyle{empty}
 \hspace{9mm}
-\AddToShipoutPicture*{\BackgroundPicback}
+% \AddToShipoutPicture*{\BackgroundPicback}
 \displayLogos
 }
 
